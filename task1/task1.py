@@ -7,7 +7,7 @@ import os.path
 import pandas as pd
 
 basepath = os.path.abspath(os.path.dirname(__file__))
-path = os.path.abspath(os.path.join(basepath, "..", "ML_data/SUM_noise.csv"))
+path = os.path.abspath(os.path.join(basepath, "..", "ML_data/SUM_clean.csv"))
 
 
 data = pd.read_csv(path, sep=";")
