@@ -2,9 +2,10 @@ from sklearn.metrics import make_scorer
 from sklearn.model_selection import train_test_split, cross_validate
 
 def split_estimate(estimator, X, y, metrics, test_size=0.3):
-    """Estimate the model and score the estimate by splitting the data 
-       into train and test sets
-    
+    """Score an estimated model using a simple data split.
+
+    A 70/30 split of training to testing data is used by default.
+
     Args:
         estimator: Scikit-learn model estimator
         X: Feature data matrix
@@ -24,7 +25,9 @@ def split_estimate(estimator, X, y, metrics, test_size=0.3):
     return {name: metric(y_test, y_pred) for name, metric in metrics.items()}
 
 def cross_val_estimate(estimator, X, y, metrics, k_fold=10):
-    """Estimate the model and score the estimate using k-fold cross validation
+    """Score an estimated model using k-fold cross validation.
+
+    10-fold cross validation is used by default.
     
     Args:
         estimator: Scikit-learn model estimator
