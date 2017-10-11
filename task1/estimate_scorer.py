@@ -7,13 +7,13 @@ def split_estimate(estimator, X, y, metrics, test_size=0.3):
     A 70/30 split of training to testing data is used by default.
 
     Args:
-        estimator: Scikit-learn model estimator
-        X: Feature data matrix
-        y: Target data array
+        estimator: Scikit-learn model estimator.
+        X: Feature data matrix.
+        y: Target data array.
         metrics: Metrics to be used for scoring the estimated model.
-            A Dictionary of metric names to metric evaluation functions
+            A Dictionary of metric names to metric evaluation functions.
             e.g. {'accuracy': scklearn.metrics.accuracy_score, etc.}
-        test_size (optional): The proportion of the data to be used for testing
+        test_size (optional): The proportion of the data to be used for testing.
     
     Returns:
         A dictionary of metric names to scores.
@@ -30,13 +30,13 @@ def cross_val_estimate(estimator, X, y, metrics, k_fold=10):
     10-fold cross validation is used by default.
     
     Args:
-        estimator: Scikit-learn model estimator
-        X: Feature data matrix
-        y: Target data array
+        estimator: Scikit-learn model estimator.
+        X: Feature data matrix.
+        y: Target data array.
         metrics: Metrics to be used for scoring the estimated model.
-            A Dictionary of metric names to metric evaluation functions
+            A Dictionary of metric names to metric evaluation functions.
             e.g. {'accuracy': scklearn.metrics.accuracy_score, etc.}
-        test_size (optional): The proportion of the data to be used for testing
+        test_size (optional): The proportion of the data to be used for testing.
     
     Returns: 
         A dictionary of metric names to scores.
