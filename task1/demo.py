@@ -1,7 +1,6 @@
 import numpy as np
-from sklearn import datasets, linear_model, svm, tree
-from sklearn.metrics import accuracy_score, mean_squared_error, r2_score, precision_score
-from sklearn.model_selection import train_test_split, cross_validate, cross_val_score
+from sklearn import linear_model, svm, tree
+from sklearn.metrics import accuracy_score, mean_squared_error, r2_score, precision_score, confusion_matrix
 import os
 import pandas as pd
 import math
@@ -19,33 +18,43 @@ def regression(data):
     sum_noise_targets = data.iloc[:,11]
 
     estimator = linear_model.LinearRegression()
+    # estimator = svm.LinearSVC()
     metrics = {
         'RMSE': compose(math.sqrt, mean_squared_error),
-        'Var': r2_score
+        'R^2': r2_score
     }
 
     scores = cross_val_estimate(estimator, sum_noise_data, sum_noise_targets, metrics)
-    print('\n' + type(estimator).__name__ + ':')
-    print(scores)
+    # scores = split_estimate(estimator, sum_noise_data, sum_noise_targets, metrics);
+    print(type(estimator).__name__ + ':')
+    print_scores(scores)
 
 def classification(data):
     sum_noise_data = data.iloc[:,1:10]
     sum_noise_targets = data.iloc[:,12]
 
-    estimator = linear_model.LogisticRegression()
+    # estimator = linear_model.LogisticRegression()
+    estimator = tree.DecisionTreeClassifier()
     metrics = {
         'Accuracy': accuracy_score,
-        'Precision': partial(precision_score, average='micro')
+        'Precision': partial(precision_score, average='micro'),
     }
 
     scores = cross_val_estimate(estimator, sum_noise_data, sum_noise_targets, metrics);
-    print('\n' + type(estimator).__name__ + ':')
-    print(scores)
+    # scores = split_estimate(estimator, sum_noise_data, sum_noise_targets, metrics);
+    print(type(estimator).__name__ + ':')
+    print_scores(scores)
 
+def print_scores(scores):
+    for name, score in scores.items():
+        print('{}: {:g}'.format(name, score))
+    print()
 
 def main():
+    print('Loading data...\n')
     data = pd.read_csv(path, sep=";", nrows=10000)
-    print('Running demo...')
+    print('Loaded', len(data), 'datapoints:')
+    print(data.iloc[:,12].value_counts(), '\n')
     regression(data)
     classification(data)
 
