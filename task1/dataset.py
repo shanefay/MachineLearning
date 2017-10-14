@@ -11,14 +11,14 @@ class Targets:
         self.regression = regression
         self.classifictation = classifictation
 
-def example():
+def Sum_Noise():
     basepath = os.path.abspath(os.path.dirname(__file__))
     path = os.path.abspath(os.path.join(basepath, "..", "ML_data/SUM_noise.csv"))
     
     df = pd.read_csv(path, sep=";", nrows=10000)
     features = ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4', 'Feature 5 (meaningless)', 'Feature 6', 'Feature 7', 'Feature 8', 'Feature 9', 'Feature 10']
-    regression_target = "Noisy Target"
-    classification_target = "Noisy Target Class"
+    regression_target = df.iloc[:12]
+    classification_target = df.iloc[:13]
     Dataset(df, features, regression_target, classification_target)
 
 def Sum_clean(): 
@@ -27,11 +27,11 @@ def Sum_clean():
     
     df = pd.read_csv(path, sep=";", nrows=10000)
     features = ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4', 'Feature 5 (meaningless)', 'Feature 6', 'Feature 7', 'Feature 8', 'Feature 9', 'Feature 10']
-    regression_target = "Target"
-    classification_target = "Target Class"
+    regression_target = df.iloc[:12]
+    classification_target = df.iloc[:13]
     Dataset(df, features, regression_target, classification_target)     
 
-def Year_predict(): 
+def Year_Predict(): 
     basepath = os.path.abspath(os.path.dirname(__file__))
     path = os.path.abspath(os.path.join(basepath, "..", "ML_data/YearPredictionMSD.txt"))
     
@@ -47,12 +47,12 @@ def Taxi():
     path = os.path.abspath(os.path.join(basepath, "..", "ML_data/train.csv"))
     
     df = pd.read_csv(path, sep=",", nrows=10000)
-    features = df.iloc[]
-    regression_target = "trip_duration"
-    classification_target_seconds = "trip_duration"
+    features = pd.merge(df.iloc[0:2], df.iloc[4:9])
+    regression_target = df.iloc[:10]
+    classification_target_seconds = df.iloc[:10]
     """ // forces interger division - only whole minutes"""
-    classification_target = classification_target_second // 60
+    classification_target = int(classification_target_seconds) // 60
     Dataset(df, features, regression_target, classification_target)       
 
 if __name__ == "__main__":
-    Year_predict()
+    Taxi()
