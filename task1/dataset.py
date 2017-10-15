@@ -7,7 +7,7 @@ class Dataset:
 
     Attributes:
         features (matrix): Matrix of feature data
-        regresssion_target (array): Array of targets for regression algoithms
+        regression_target (array): Array of targets for regression algoithms
         classification_target (array): Array of targets for classification algoithms
     """
     
