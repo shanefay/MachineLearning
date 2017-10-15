@@ -29,8 +29,6 @@ class Dataset:
                 dataframe.iloc[:,index] = dataframe.iloc[:,index].apply(func)
 
         self.features = dataframe.iloc[:,features]
-        for i in range(0, 8):
-            print(i, ':\t', self.features.iloc[:,i].min(), '\t', self.features.iloc[:,i].max())
 
         self.regression_target = dataframe.iloc[:,regression_target]
 
