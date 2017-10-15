@@ -16,8 +16,10 @@ class ResultRecorder:
         Args:
             chunk_sizes (list): The data chunk sizes.
             datasets (list): The names of the datasets.
-            regression (EstimatorClass): The names of the regression algorithms and metrics.
-            classfication (EstimatorClass): The names of the classification algorithms and metrics
+            regression_estimators (list): The names of the regression algorithms.
+            regression_metrics (list): The names of the regression metrics.
+            classfication_estimators (list): The names of the classfication algorithms.
+            classfication_metrics (list): The names of the classfication metrics.
         """
         indexes = (self._get_indexes(regression_estimators, datasets, regression_metrics) +
                    self._get_indexes(classfication_estimators, datasets, classfication_metrics))
