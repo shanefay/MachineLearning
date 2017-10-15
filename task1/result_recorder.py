@@ -8,7 +8,9 @@ class ResultRecorder:
 
     """
     
-    def __init__(self, chunk_sizes, datasets, regression, classfication):
+    def __init__(self, chunk_sizes, datasets, 
+                 regression_estimators, regression_metrics, 
+                 classfication_estimators, classfication_metrics):
         """Create a new ResultRecorder.
         
         Args:
@@ -17,7 +19,8 @@ class ResultRecorder:
             regression (EstimatorClass): The names of the regression algorithms and metrics.
             classfication (EstimatorClass): The names of the classification algorithms and metrics
         """
-        indexes = self._get_indexes(datasets, regression) + self._get_indexes(datasets, classfication)
+        indexes = (self._get_indexes(regression_estimators, datasets, regression_metrics) +
+                   self._get_indexes(classfication_estimators, datasets, classfication_metrics))
         self._record = pd.DataFrame(index=indexes, columns=chunk_sizes)
 
     def add_result(self, estimator, dataset, metric, chunk_size, result):
@@ -43,13 +46,13 @@ class ResultRecorder:
         """
         self._record.to_csv(filename, na_rep='#N/A', encoding='utf-8')
 
-    def _get_indexes(self, datasets, estimator_class):
+    def _get_indexes(self, estimators, datasets, metrics):
         """ Get all the indexes for regression or classification.
         """
         return [self._get_index(estimator, dataset, metric)
-            for estimator in estimator_class.estimators
+            for estimator in estimators
             for dataset in datasets
-            for metric in estimator_class.metrics
+            for metric in metrics
         ]
     
     def _get_index(self, estimator, dataset, metric):
@@ -59,20 +62,6 @@ class ResultRecorder:
         """
         return '; '.join([estimator, dataset, metric])
 
-class EstimatorClass:
-    """This class represents a class of estimators with associated metrics.
-
-    e.g. Regression estimators with RMSE and Variance.
-    
-    Attributes:
-        estimators (list): The names of estimator algorithms in this class.
-        metrics (list): The names of metrics in this class.
-    """
-    
-    def __init__(self, estimators, metrics):
-        self.estimators = estimators
-        self.metrics = metrics
-
 def test():
     """A quick (un-automated) test.
 
@@ -80,11 +69,14 @@ def test():
     """
     chunk_sizes = [100, 500, 1000, 5000]
     datasets = ['Dataset A', 'Dataset B']
-    regression = EstimatorClass(['Reg 1', 'Reg 2'], ['Metric X', 'Metric Z'])
-    classfication = EstimatorClass(['Class 1', 'Class 2'], ['Metric 1', 'Metric 2'])
-    results = ResultRecorder(chunk_sizes, datasets, regression, classfication)
+    regression_estimators = ['Reg 1', 'Reg 2']
+    regression_metrics = ['Metric X', 'Metric Z']
+    classfication_estimators = ['Class 1', 'Class 2']
+    classfication_metrics = ['Metric 1', 'Metric 2']
+    results = ResultRecorder(chunk_sizes, datasets, regression_estimators, regression_metrics,
+                             classfication_estimators, classfication_metrics)
     
-    results.add_result(regression.estimators[0], datasets[0], regression.metrics[1], chunk_sizes[2], 12345)
+    results.add_result(regression_estimators[0], datasets[0], regression_metrics[1], chunk_sizes[2], 12345)
     results.to_csv('test.csv')
 
 if __name__ == '__main__':
