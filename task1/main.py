@@ -37,7 +37,7 @@ new_results = rr.ResultRecorder(chunk_size,
 	metrics.Metrics.classification.keys(),
 	estimators.Estimators.classification.keys())
 
-print(estimators.Estimators.regression.keys())
+
 for estimator in estimators.Estimators.regression.keys():
 	for data_set in data_sets.keys(): 
 		for metric in metrics.Metrics.regression.keys():
@@ -47,6 +47,16 @@ for estimator in estimators.Estimators.regression.keys():
 					 	data_sets[data_set].features[:chunk], 
 					 	data_sets[data_set].regression_target[:chunk], 
 					 	metrics.Metrics.regression)
-					 print(result)
 					 new_results.add_result(estimator, data_set, metric, chunk, result[metric])
+for estimator in estimators.Estimators.classification.keys():
+	for data_set in data_sets.keys(): 
+		for metric in metrics.Metrics.classification.keys():
+			for chunk in chunk_size:
+				if chunk < len(data_sets[data_set].features):
+					 result = es.split_estimate(estimators.Estimators.classification[estimator], 
+					 	data_sets[data_set].features[:chunk], 
+					 	data_sets[data_set].classification_target[:chunk], 
+					 	metrics.Metrics.classification)
+					 new_results.add_result(estimator, data_set, metric, chunk, result[metric])
+
 new_results.to_csv('lordhelpme.csv')
