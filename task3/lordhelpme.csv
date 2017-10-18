@@ -1,0 +1,33 @@
+,100,500,5000
+Linear Support Vector Machine; SUM_clean; R^2,0.999999999904,0.999999999926,0.999999999991
+Linear Support Vector Machine; SUM_clean; RMSE,2.3085742143911374,1.4572160505660188,2.2060998189304515
+Linear Support Vector Machine; SUM_noisy; R^2,#N/A,#N/A,#N/A
+Linear Support Vector Machine; SUM_noisy; RMSE,#N/A,#N/A,#N/A
+Linear Support Vector Machine; Million Songs; R^2,#N/A,#N/A,#N/A
+Linear Support Vector Machine; Million Songs; RMSE,#N/A,#N/A,#N/A
+Linear Support Vector Machine; New York Taxis; R^2,#N/A,#N/A,#N/A
+Linear Support Vector Machine; New York Taxis; RMSE,#N/A,#N/A,#N/A
+Linear Regression; SUM_clean; R^2,1.0,1.0,1.0
+Linear Regression; SUM_clean; RMSE,1.9702602689712994e-10,4.867860344832653e-10,3.1190926031257183e-10
+Linear Regression; SUM_noisy; R^2,#N/A,#N/A,#N/A
+Linear Regression; SUM_noisy; RMSE,#N/A,#N/A,#N/A
+Linear Regression; Million Songs; R^2,#N/A,#N/A,#N/A
+Linear Regression; Million Songs; RMSE,#N/A,#N/A,#N/A
+Linear Regression; New York Taxis; R^2,#N/A,#N/A,#N/A
+Linear Regression; New York Taxis; RMSE,#N/A,#N/A,#N/A
+Accuracy; SUM_clean; Decision Tree Classifier,#N/A,#N/A,#N/A
+Accuracy; SUM_clean; Logistic Regression,#N/A,#N/A,#N/A
+Accuracy; SUM_noisy; Decision Tree Classifier,#N/A,#N/A,#N/A
+Accuracy; SUM_noisy; Logistic Regression,#N/A,#N/A,#N/A
+Accuracy; Million Songs; Decision Tree Classifier,#N/A,#N/A,#N/A
+Accuracy; Million Songs; Logistic Regression,#N/A,#N/A,#N/A
+Accuracy; New York Taxis; Decision Tree Classifier,#N/A,#N/A,#N/A
+Accuracy; New York Taxis; Logistic Regression,#N/A,#N/A,#N/A
+Precision; SUM_clean; Decision Tree Classifier,#N/A,#N/A,#N/A
+Precision; SUM_clean; Logistic Regression,#N/A,#N/A,#N/A
+Precision; SUM_noisy; Decision Tree Classifier,#N/A,#N/A,#N/A
+Precision; SUM_noisy; Logistic Regression,#N/A,#N/A,#N/A
+Precision; Million Songs; Decision Tree Classifier,#N/A,#N/A,#N/A
+Precision; Million Songs; Logistic Regression,#N/A,#N/A,#N/A
+Precision; New York Taxis; Decision Tree Classifier,#N/A,#N/A,#N/A
+Precision; New York Taxis; Logistic Regression,#N/A,#N/A,#N/A
