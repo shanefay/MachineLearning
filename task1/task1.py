@@ -7,7 +7,7 @@ def score_on_dataset(dataset_name, features, target, estimators, metrics, result
     for estimator in estimators:
         print('\tEstimator:', estimator.name)
         chunks = (chunk for chunk in CHUNK_SIZES 
-            if chunk <= len(features) * CHUNK_SIZE_TOLERANCE
+            if chunk <= len(features) / CHUNK_SIZE_TOLERANCE
             if chunk <= estimator.max_dataset_size)
         for chunk in chunks:
             print('\t\tChunk:', chunk)
