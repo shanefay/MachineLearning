@@ -7,8 +7,8 @@ class Dataset:
 
     Attributes:
         features (matrix): Matrix of feature data
-        regression_target (array): Array of targets for regression algoithms
-        classification_target (array): Array of targets for classification algoithms
+        _regression_target (array): Array of targets for regression algoithms
+        _classification_target (array): Array of targets for classification algoithms
     """
     
     def __init__(self, dataframe, features, regression_target, classification_target, map_columns=None):
@@ -37,39 +37,47 @@ class Dataset:
         else:
             self.classification_target = dataframe.iloc[:,classification_target]
 
+    def size(self):
+        """Get the number of datapoints in the dataset.
+        
+        Returns:
+            The number of datapoints in the dataset.
+        """
+        return len(self.features)
 
-basepath = os.path.abspath(os.path.dirname(__file__))
-MAX_NROWS = None # change this to load more data
 
-def get_path(filename):
-    return os.path.abspath(os.path.join(basepath, "..", "ML_data", filename))
+MAX_NROWS = 10000000
 
-def sum_noisy():
-    filepath = get_path('SUM_noise.csv')
+def sum_noisy(data_dir, filename):
+    print('Loading:', filename)
+    filepath = os.path.join(data_dir, filename)
     df = pd.read_csv(filepath, sep=";", nrows=MAX_NROWS)
     features = range(1, 11)
     regression_target = 11
     classification_target = 12
     return Dataset(df, features, regression_target, classification_target)
 
-def sum_clean():
-    filepath = get_path('SUM_clean.csv')
+def sum_clean(data_dir, filename):
+    print('Loading:', filename)
+    filepath = os.path.join(data_dir, filename)
     df = pd.read_csv(filepath, sep=";", nrows=MAX_NROWS)
     features = range(1, 11)
     regression_target = 11
     classification_target = 12
     return Dataset(df, features, regression_target, classification_target)
 
-def year_predict():
-    filepath = get_path('YearPredictionMSD.txt.zip')
+def year_predict(data_dir, filename):
+    print('Loading:', filename)    
+    filepath = os.path.join(data_dir, filename)
     df = pd.read_csv(filepath, nrows=MAX_NROWS)
     features = range(1, 91)
     regression_target = 0
     classification_target_gen = lambda x: str(x)[0:3] + '0s' # convert year to decade
     return Dataset(df, features, regression_target, classification_target_gen)
 
-def new_york_taxi():
-    filepath = get_path('New York City Taxi Trip Duration.zip')
+def new_york_taxi(data_dir, filename):
+    print('Loading:', filename)
+    filepath = os.path.join(data_dir, filename)
     df = pd.read_csv(filepath, nrows=MAX_NROWS, parse_dates=[2])
     features = [1, 2, 4, 5, 6, 7, 8, 9]
     regression_target = 10
