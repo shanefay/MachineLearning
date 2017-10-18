@@ -22,7 +22,7 @@ NEW_YORK_TAXI = os.path.join('New York City Taxi Trip Duration', 'New York City 
 
 datasets = {
     'The SUM dataset, without noise': ds.sum_clean(DATA_DIRECTORY, SUM_CLEAN),
-    'The SUM dataset, without noise': ds.sum_noisy(DATA_DIRECTORY, SUM_NOISY),
+    'The SUM dataset, with noise': ds.sum_noisy(DATA_DIRECTORY, SUM_NOISY),
     'YearPredictionMSD': ds.year_predict(DATA_DIRECTORY, MILLION_SONG),
     'New York City Taxi Trip Duration': ds.new_york_taxi(DATA_DIRECTORY, NEW_YORK_TAXI)
 }
