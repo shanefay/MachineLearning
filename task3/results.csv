@@ -1,49 +1,41 @@
-,100
-Linear Regression; New York City Taxi Trip Duration; Mean Squared log error,#N/A
-Linear Regression; New York City Taxi Trip Duration; Median Absolute Error,#N/A
-Linear Regression; New York City Taxi Trip Duration; Explained Variance,#N/A
-Linear Regression; New York City Taxi Trip Duration; RMSE,#N/A
-Linear Regression; New York City Taxi Trip Duration; R^2,#N/A
-Linear Regression; New York City Taxi Trip Duration; Mean Absolute Error,#N/A
-Linear Regression; YearPredictionMSD; Mean Squared log error,#N/A
-Linear Regression; YearPredictionMSD; Median Absolute Error,#N/A
-Linear Regression; YearPredictionMSD; Explained Variance,#N/A
-Linear Regression; YearPredictionMSD; RMSE,#N/A
-Linear Regression; YearPredictionMSD; R^2,#N/A
-Linear Regression; YearPredictionMSD; Mean Absolute Error,#N/A
-Hubor Regressor; New York City Taxi Trip Duration; Mean Squared log error,#N/A
-Hubor Regressor; New York City Taxi Trip Duration; Median Absolute Error,#N/A
-Hubor Regressor; New York City Taxi Trip Duration; Explained Variance,#N/A
-Hubor Regressor; New York City Taxi Trip Duration; RMSE,#N/A
-Hubor Regressor; New York City Taxi Trip Duration; R^2,#N/A
-Hubor Regressor; New York City Taxi Trip Duration; Mean Absolute Error,#N/A
-Hubor Regressor; YearPredictionMSD; Mean Squared log error,#N/A
-Hubor Regressor; YearPredictionMSD; Median Absolute Error,#N/A
-Hubor Regressor; YearPredictionMSD; Explained Variance,#N/A
-Hubor Regressor; YearPredictionMSD; RMSE,#N/A
-Hubor Regressor; YearPredictionMSD; R^2,#N/A
-Hubor Regressor; YearPredictionMSD; Mean Absolute Error,#N/A
-Perceptron; New York City Taxi Trip Duration; Mean Squared log error,#N/A
-Perceptron; New York City Taxi Trip Duration; Median Absolute Error,#N/A
-Perceptron; New York City Taxi Trip Duration; Explained Variance,#N/A
-Perceptron; New York City Taxi Trip Duration; RMSE,#N/A
-Perceptron; New York City Taxi Trip Duration; R^2,#N/A
-Perceptron; New York City Taxi Trip Duration; Mean Absolute Error,#N/A
-Perceptron; YearPredictionMSD; Mean Squared log error,#N/A
-Perceptron; YearPredictionMSD; Median Absolute Error,#N/A
-Perceptron; YearPredictionMSD; Explained Variance,#N/A
-Perceptron; YearPredictionMSD; RMSE,#N/A
-Perceptron; YearPredictionMSD; R^2,#N/A
-Perceptron; YearPredictionMSD; Mean Absolute Error,#N/A
-Linear Support Vector Machine; New York City Taxi Trip Duration; Mean Squared log error,#N/A
-Linear Support Vector Machine; New York City Taxi Trip Duration; Median Absolute Error,#N/A
-Linear Support Vector Machine; New York City Taxi Trip Duration; Explained Variance,#N/A
-Linear Support Vector Machine; New York City Taxi Trip Duration; RMSE,#N/A
-Linear Support Vector Machine; New York City Taxi Trip Duration; R^2,#N/A
-Linear Support Vector Machine; New York City Taxi Trip Duration; Mean Absolute Error,#N/A
-Linear Support Vector Machine; YearPredictionMSD; Mean Squared log error,#N/A
-Linear Support Vector Machine; YearPredictionMSD; Median Absolute Error,#N/A
-Linear Support Vector Machine; YearPredictionMSD; Explained Variance,#N/A
-Linear Support Vector Machine; YearPredictionMSD; RMSE,#N/A
-Linear Support Vector Machine; YearPredictionMSD; R^2,#N/A
-Linear Support Vector Machine; YearPredictionMSD; Mean Absolute Error,#N/A
+,1000
+Linear Regression; YearPredictionMSD; Explained Variance,0.0774292091217
+Linear Regression; YearPredictionMSD; RMSE,13.716411412068117
+Linear Regression; YearPredictionMSD; Median Absolute Error,8.30825238686
+Linear Regression; YearPredictionMSD; R^2,0.0672923508177
+Linear Regression; YearPredictionMSD; Mean Absolute Error,10.8536779255
+Linear Regression; New York City Taxi Trip Duration; Explained Variance,-0.162694129962
+Linear Regression; New York City Taxi Trip Duration; RMSE,663.8190081964351
+Linear Regression; New York City Taxi Trip Duration; Median Absolute Error,454.481368537
+Linear Regression; New York City Taxi Trip Duration; R^2,-0.247259036946
+Linear Regression; New York City Taxi Trip Duration; Mean Absolute Error,511.426385089
+Hubor Regressor; YearPredictionMSD; Explained Variance,-1498.22171167
+Hubor Regressor; YearPredictionMSD; RMSE,559.3578372430488
+Hubor Regressor; YearPredictionMSD; Median Absolute Error,304.567365365
+Hubor Regressor; YearPredictionMSD; R^2,-1550.11496334
+Hubor Regressor; YearPredictionMSD; Mean Absolute Error,391.686450314
+Hubor Regressor; New York City Taxi Trip Duration; Explained Variance,0.000497567697003
+Hubor Regressor; New York City Taxi Trip Duration; RMSE,604.3415116899924
+Hubor Regressor; New York City Taxi Trip Duration; Median Absolute Error,285.628929054
+Hubor Regressor; New York City Taxi Trip Duration; R^2,-0.0337657616784
+Hubor Regressor; New York City Taxi Trip Duration; Mean Absolute Error,414.062096729
+Perceptron; YearPredictionMSD; Explained Variance,-1.24541197988
+Perceptron; YearPredictionMSD; RMSE,23.400925907607444
+Perceptron; YearPredictionMSD; Median Absolute Error,21.0
+Perceptron; YearPredictionMSD; R^2,-1.71475483738
+Perceptron; YearPredictionMSD; Mean Absolute Error,19.0366666667
+Perceptron; New York City Taxi Trip Duration; Explained Variance,1.11022302463e-16
+Perceptron; New York City Taxi Trip Duration; RMSE,595.1617735260445
+Perceptron; New York City Taxi Trip Duration; Median Absolute Error,388.0
+Perceptron; New York City Taxi Trip Duration; R^2,-0.0025991904172
+Perceptron; New York City Taxi Trip Duration; Mean Absolute Error,447.136666667
+Linear Support Vector Machine; YearPredictionMSD; Explained Variance,-168.431237847
+Linear Support Vector Machine; YearPredictionMSD; RMSE,186.02568126107082
+Linear Support Vector Machine; YearPredictionMSD; Median Absolute Error,119.439554
+Linear Support Vector Machine; YearPredictionMSD; R^2,-170.557749276
+Linear Support Vector Machine; YearPredictionMSD; Mean Absolute Error,143.699154606
+Linear Support Vector Machine; New York City Taxi Trip Duration; Explained Variance,0.0
+Linear Support Vector Machine; New York City Taxi Trip Duration; RMSE,1001.222434493621
+Linear Support Vector Machine; New York City Taxi Trip Duration; Median Absolute Error,616.0
+Linear Support Vector Machine; New York City Taxi Trip Duration; R^2,-1.83738609266
+Linear Support Vector Machine; New York City Taxi Trip Duration; Mean Absolute Error,805.696666667

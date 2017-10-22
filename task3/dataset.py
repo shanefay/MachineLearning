@@ -46,7 +46,7 @@ class Dataset:
         return len(self.features)
 
 
-MAX_NROWS = 1000#0000
+MAX_NROWS = 10000000
 
 def sum_noisy(data_dir, filename):
     print('Loading:', filename)

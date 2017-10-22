@@ -25,8 +25,8 @@ datasets = {
 }
 
 # The number of datapoints (for each dataset) to use with each estimator
-CHUNK_SIZES = [100]
-SMALL_DATASET_SIZE = 100
+CHUNK_SIZES = [1000]
+SMALL_DATASET_SIZE = 1000
 MAX_DATASET_SIZE = CHUNK_SIZES[-1]
 
 # Chunk size tolerance
@@ -48,7 +48,6 @@ regression = EstimatorsWithMetrics(
         'R^2': r2_score,
         'Explained Variance':explained_variance_score,
         'Mean Absolute Error':mean_absolute_error, 
-        'Mean Squared log error':mean_squared_log_error, 
         'Median Absolute Error':median_absolute_error
     }
 )
