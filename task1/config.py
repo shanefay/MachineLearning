@@ -29,7 +29,8 @@ datasets = {
 
 # The number of datapoints (for each dataset) to use with each estimator
 CHUNK_SIZES = [100, 500, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000]
-SMALL_DATASET_SIZE = 10000
+SMALL_DATASET_SIZE = CHUNK_SIZES[-6]
+MEDIUM_DATASET_SIZE = CHUNK_SIZES[-3]
 MAX_DATASET_SIZE = CHUNK_SIZES[-1]
 
 # Chunk size tolerance
@@ -41,20 +42,20 @@ CHUNK_SIZE_TOLERANCE = 0.9
 regression = EstimatorsWithMetrics(
     estimators = [
         Estimator('Linear Regression', linear_model.LinearRegression(), MAX_DATASET_SIZE),
-        Estimator('Linear Support Vector Machine', svm.LinearSVR(), SMALL_DATASET_SIZE)
+        Estimator('SVM-RBF', svm.SVR(kernel='rbf'), SMALL_DATASET_SIZE)
     ],
     metrics = {
-        'RMSE': compose(sqrt, mean_squared_error),
+        'RMSE': lambda test, pred: sqrt(mean_squared_error(test, pred)) / pred.mean(),
         'R^2': r2_score
     }
 )
 classification = EstimatorsWithMetrics(
     estimators = [
         Estimator('Logistic Regression', linear_model.LogisticRegression(), SMALL_DATASET_SIZE),
-        Estimator('Decision Tree Classifier', tree.DecisionTreeClassifier(), MAX_DATASET_SIZE)
+        Estimator('Descision Tree Classifier', tree.DecisionTreeClassifier(), MEDIUM_DATASET_SIZE)
     ],
     metrics = {
         'Accuracy': accuracy_score,
-        'Precision': partial(precision_score, average='micro')
+        'Precision': partial(precision_score, average='macro')
     }
 )
