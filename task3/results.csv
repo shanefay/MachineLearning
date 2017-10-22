@@ -1,0 +1,49 @@
+,100
+Linear Regression; New York City Taxi Trip Duration; Mean Squared log error,#N/A
+Linear Regression; New York City Taxi Trip Duration; Median Absolute Error,#N/A
+Linear Regression; New York City Taxi Trip Duration; Explained Variance,#N/A
+Linear Regression; New York City Taxi Trip Duration; RMSE,#N/A
+Linear Regression; New York City Taxi Trip Duration; R^2,#N/A
+Linear Regression; New York City Taxi Trip Duration; Mean Absolute Error,#N/A
+Linear Regression; YearPredictionMSD; Mean Squared log error,#N/A
+Linear Regression; YearPredictionMSD; Median Absolute Error,#N/A
+Linear Regression; YearPredictionMSD; Explained Variance,#N/A
+Linear Regression; YearPredictionMSD; RMSE,#N/A
+Linear Regression; YearPredictionMSD; R^2,#N/A
+Linear Regression; YearPredictionMSD; Mean Absolute Error,#N/A
+Hubor Regressor; New York City Taxi Trip Duration; Mean Squared log error,#N/A
+Hubor Regressor; New York City Taxi Trip Duration; Median Absolute Error,#N/A
+Hubor Regressor; New York City Taxi Trip Duration; Explained Variance,#N/A
+Hubor Regressor; New York City Taxi Trip Duration; RMSE,#N/A
+Hubor Regressor; New York City Taxi Trip Duration; R^2,#N/A
+Hubor Regressor; New York City Taxi Trip Duration; Mean Absolute Error,#N/A
+Hubor Regressor; YearPredictionMSD; Mean Squared log error,#N/A
+Hubor Regressor; YearPredictionMSD; Median Absolute Error,#N/A
+Hubor Regressor; YearPredictionMSD; Explained Variance,#N/A
+Hubor Regressor; YearPredictionMSD; RMSE,#N/A
+Hubor Regressor; YearPredictionMSD; R^2,#N/A
+Hubor Regressor; YearPredictionMSD; Mean Absolute Error,#N/A
+Perceptron; New York City Taxi Trip Duration; Mean Squared log error,#N/A
+Perceptron; New York City Taxi Trip Duration; Median Absolute Error,#N/A
+Perceptron; New York City Taxi Trip Duration; Explained Variance,#N/A
+Perceptron; New York City Taxi Trip Duration; RMSE,#N/A
+Perceptron; New York City Taxi Trip Duration; R^2,#N/A
+Perceptron; New York City Taxi Trip Duration; Mean Absolute Error,#N/A
+Perceptron; YearPredictionMSD; Mean Squared log error,#N/A
+Perceptron; YearPredictionMSD; Median Absolute Error,#N/A
+Perceptron; YearPredictionMSD; Explained Variance,#N/A
+Perceptron; YearPredictionMSD; RMSE,#N/A
+Perceptron; YearPredictionMSD; R^2,#N/A
+Perceptron; YearPredictionMSD; Mean Absolute Error,#N/A
+Linear Support Vector Machine; New York City Taxi Trip Duration; Mean Squared log error,#N/A
+Linear Support Vector Machine; New York City Taxi Trip Duration; Median Absolute Error,#N/A
+Linear Support Vector Machine; New York City Taxi Trip Duration; Explained Variance,#N/A
+Linear Support Vector Machine; New York City Taxi Trip Duration; RMSE,#N/A
+Linear Support Vector Machine; New York City Taxi Trip Duration; R^2,#N/A
+Linear Support Vector Machine; New York City Taxi Trip Duration; Mean Absolute Error,#N/A
+Linear Support Vector Machine; YearPredictionMSD; Mean Squared log error,#N/A
+Linear Support Vector Machine; YearPredictionMSD; Median Absolute Error,#N/A
+Linear Support Vector Machine; YearPredictionMSD; Explained Variance,#N/A
+Linear Support Vector Machine; YearPredictionMSD; RMSE,#N/A
+Linear Support Vector Machine; YearPredictionMSD; R^2,#N/A
+Linear Support Vector Machine; YearPredictionMSD; Mean Absolute Error,#N/A
