@@ -11,9 +11,18 @@ def score_on_dataset(dataset_name, features, target, estimators, metrics, result
             if chunk <= estimator.max_dataset_size)
         for chunk in chunks:
             print('\t\tChunk:', chunk)
-            scores = split_estimate(estimator.algorithm, features[:chunk], target[:chunk], metrics)
+            scores = split_estimate(
+            	estimator.algorithm,
+            	features[:chunk],
+            	target[:chunk],
+            	metrics)
+            print timeit
             for score_name, score in scores.items():
-               result_recorder.add_result(estimator.name, dataset_name, score_name, chunk, score)
+               result_recorder.add_result(estimator.name,
+               	dataset_name,
+               	score_name,
+               	chunk,
+               	score)
                print (score_name, score)
 
 def main():
