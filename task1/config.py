@@ -47,7 +47,7 @@ CHUNK_SIZE_TOLERANCE = 0.9
 regression = EstimatorsWithMetrics(
     estimators = [
         Estimator('Linear Regression', linear_model.LinearRegression(), MAX_DATASET_SIZE),
-        Estimator('SVM-RBF', svm.SVR(kernel='rbf'), SMALL_DATASET_SIZE)
+        Estimator('Linear SVR', svm.LinearSVR(), SMALL_DATASET_SIZE)
     ],
     metrics = {
         'RMSE': lambda test, pred: sqrt(mean_squared_error(test, pred)) / pred.mean(),
