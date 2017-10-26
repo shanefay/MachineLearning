@@ -48,24 +48,6 @@ class Dataset:
 
 MAX_NROWS = 10000000
 
-def sum_noisy(data_dir, filename):
-    print('Loading:', filename)
-    filepath = os.path.join(data_dir, filename)
-    df = pd.read_csv(filepath, sep=";", nrows=MAX_NROWS)
-    features = range(1, 11)
-    regression_target = 11
-    classification_target = 12
-    return Dataset(df, features, regression_target, classification_target)
-
-def sum_clean(data_dir, filename):
-    print('Loading:', filename)
-    filepath = os.path.join(data_dir, filename)
-    df = pd.read_csv(filepath, sep=";", nrows=MAX_NROWS)
-    features = range(1, 11)
-    regression_target = 11
-    classification_target = 12
-    return Dataset(df, features, regression_target, classification_target)
-
 def year_predict(data_dir, filename):
     print('Loading:', filename)    
     filepath = os.path.join(data_dir, filename)
@@ -74,28 +56,6 @@ def year_predict(data_dir, filename):
     regression_target = 0
     classification_target_gen = lambda x: str(x)[0:3] + '0s' # convert year to decade
     return Dataset(df, features, regression_target, classification_target_gen)
-
-def new_york_taxi(data_dir, filename):
-    print('Loading:', filename)
-    filepath = os.path.join(data_dir, filename)
-    df = pd.read_csv(filepath, nrows=MAX_NROWS, parse_dates=[2])
-    features = [1, 2, 4, 5, 6, 7, 8, 9]
-    regression_target = 10
-    classification_target_gen = lambda x: x // 60  # convert seconds to minutes
-    map_columns = {
-        2: (lambda x: x.timestamp()),        # convert datetime to timestamp
-        9: (lambda x: 1 if x == 'Y' else 0)  # make store_and_fwd_flag N = 0, Y = 1
-    }
-    return Dataset(df, features, regression_target, classification_target_gen, map_columns)
-
-def fashion(data_dir, filename):
-    print('Loading:', filename)
-    filepath = os.path.join(data_dir, filename)
-    df = pd.read_csv(filepath, sep=";", nrows=MAX_NROWS)
-    features = range(1, 784)
-    regression_target = 1
-    classification_target = 1
-    return Dataset(df, features, regression_target, classification_target)
 
 def housing_prices(data_dir, filename):
     print('Loading:', filename)
