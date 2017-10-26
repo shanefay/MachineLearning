@@ -46,7 +46,7 @@ class ResultRecorder:
         Args:
             filename: The name of the file to be written out to.
         """
-        self._record.to_csv(filename, na_rep='#N/A', encoding='utf-8')
+        self._record.to_csv(filename, sep=';', na_rep='#N/A', encoding='utf-8')
 
     def _get_indexes(self, estimators, datasets, metrics):
         """ Get all the indexes for regression or classification.
