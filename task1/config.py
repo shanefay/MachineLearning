@@ -9,8 +9,13 @@ import os
 # Output filename
 OUTPUT_FILE = 'results.csv'
 
-# Set this as the path to your data directory
-DATA_DIRECTORY = os.path.join(os.path.abspath(os.path.dirname(__file__)),'..','ML_data')
+# Root directory of this project
+PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
+
+# Set this as the path to your data directory relative to the project root directory:
+# This data directory is assumed to have the same structure as the dropbox dataset folder:
+# https://www.dropbox.com/sh/euppz607r6gsen2/AACcVFIxekZXYTEM5ZsMSczEa?dl=0
+DATA_DIRECTORY = os.path.join(PROJECT_ROOT, 'ML_data')
 
 # Relative path from data directory to the files containing the datasets.
 # The defaults given here match the structure of the dropbox folder:
