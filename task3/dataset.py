@@ -87,3 +87,21 @@ def new_york_taxi(data_dir, filename):
         9: (lambda x: 1 if x == 'Y' else 0)  # make store_and_fwd_flag N = 0, Y = 1
     }
     return Dataset(df, features, regression_target, classification_target_gen, map_columns)
+
+def fashion(data_dir, filename):
+    print('Loading:', filename)
+    filepath = os.path.join(data_dir, filename)
+    df = pd.read_csv(filepath, sep=";", nrows=MAX_NROWS)
+    features = range(1, 784)
+    regression_target = 1
+    classification_target = 1
+    return Dataset(df, features, regression_target, classification_target)
+
+def housing_prices(data_dir, filename):
+    print('Loading:', filename)
+    filepath = os.path.join(data_dir, filename)
+    df = pd.read_csv(filepath, nrows=MAX_NROWS)
+    features = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 19, 20]
+    regression_target = 2
+    classification_target = 0
+    return Dataset(df, features, regression_target, classification_target)  

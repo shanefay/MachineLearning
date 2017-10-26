@@ -35,16 +35,20 @@ DATA_DIRECTORY = os.path.join(os.path.abspath(os.path.dirname(__file__)),'..','M
 
 MILLION_SONG = os.path.join('YearPredictionMSD.txt.zip')
 NEW_YORK_TAXI = os.path.join('New York City Taxi Trip Duration.zip')
-SUM_NOISY = os.path.join('SUM_noise.csv')
+FASHION = os.path.join('fashion-mnist_test.csv')
+HOUSING = os.path.join('kc_house_data.csv')
 
 datasets = {
-    'YearPredictionMSD': ds.year_predict(DATA_DIRECTORY, MILLION_SONG),
-    'The SUM dataset, with noise': ds.sum_noisy(DATA_DIRECTORY, SUM_NOISY),
+   # 'YearPredictionMSD': ds.year_predict(DATA_DIRECTORY, MILLION_SONG),
+   # 'New York City Taxi Trip Duration': ds.new_york_taxi(DATA_DIRECTORY, NEW_YORK_TAXI),
+   # 'Fashion MNIST': ds.fashion(DATA_DIRECTORY, FASHION),
+     'Housing Prices': ds.housing_prices(DATA_DIRECTORY, HOUSING)
+
 }
 
 # The number of datapoints (for each dataset) to use with each estimator
-CHUNK_SIZES = [1000]
-SMALL_DATASET_SIZE = 1000
+CHUNK_SIZES = [10000]
+SMALL_DATASET_SIZE = 10000
 MAX_DATASET_SIZE = CHUNK_SIZES[-1]
 
 # Chunk size tolerance
