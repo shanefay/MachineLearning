@@ -38,7 +38,7 @@ class ResultRecorder:
         return self._dataframe_to_csv_string(joined_tables)
 
     def _dataframe_to_csv_string(self, dataframe):
-        return dataframe.to_csv(na_rep='#N/A', encoding='utf-8')
+        return dataframe.to_csv(sep=';', na_rep='#N/A', encoding='utf-8')
 
     
 def test():
