@@ -5,7 +5,6 @@ from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, precis
 from utils import compose, partial
 from math import sqrt
 from statistics import median
-import timeit
 import os
 
 
@@ -36,10 +35,11 @@ DATA_DIRECTORY = os.path.join(os.path.abspath(os.path.dirname(__file__)),'..','M
 
 MILLION_SONG = os.path.join('YearPredictionMSD.txt.zip')
 NEW_YORK_TAXI = os.path.join('New York City Taxi Trip Duration.zip')
+SUM_NOISY = os.path.join('SUM_noise.csv')
 
 datasets = {
     'YearPredictionMSD': ds.year_predict(DATA_DIRECTORY, MILLION_SONG),
-    'New York City Taxi Trip Duration': ds.new_york_taxi(DATA_DIRECTORY, NEW_YORK_TAXI)
+    'The SUM dataset, with noise': ds.sum_noisy(DATA_DIRECTORY, SUM_NOISY),
 }
 
 # The number of datapoints (for each dataset) to use with each estimator
@@ -51,12 +51,11 @@ MAX_DATASET_SIZE = CHUNK_SIZES[-1]
 # e.g. With a tolerance of 0.9 a dataset with 9.x million entries will count as a 10 million chunk size
 CHUNK_SIZE_TOLERANCE = 0.9
 
-wrapper1 = timeit.timeit(linear_model.LinearRegression())
 
 # The chosen regression/classification algorithms with chosen metrics
 regression = EstimatorsWithMetrics(
     estimators = [
-        Estimator('Linear Regression', wrapper1, MAX_DATASET_SIZE),
+        Estimator('Linear Regression', linear_model.LinearRegression(), MAX_DATASET_SIZE),
         Estimator('Hubor Regressor', linear_model.HuberRegressor(), SMALL_DATASET_SIZE),
         Estimator('Perceptron', linear_model.Perceptron(), SMALL_DATASET_SIZE),
         Estimator('Linear Support Vector Machine', svm.LinearSVR(), SMALL_DATASET_SIZE),
@@ -72,15 +71,5 @@ regression = EstimatorsWithMetrics(
         'Median Underestimate':median_underestimate,
         'Max Overestimate': lambda trueY, predY : max(predY - trueY),
         'Min Underestimate': lambda trueY, predY : min(predY - trueY)
-    }
-)
-classification = EstimatorsWithMetrics(
-    estimators = [
-        Estimator('Logistic Regression', linear_model.LogisticRegression(), SMALL_DATASET_SIZE),
-        Estimator('Decision Tree Classifier', tree.DecisionTreeClassifier(), MAX_DATASET_SIZE)
-    ],
-    metrics = {
-        'Accuracy': accuracy_score,
-        'Precision': partial(precision_score, average='micro')
     }
 )

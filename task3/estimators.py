@@ -21,7 +21,7 @@ class EstimatorsWithMetrics:
         self.metrics = metrics
 
     def get_estimator_names(self):
-        return [estimator.name for estimator in self.estimators]
+        return [estimator.name for estimator in self.estimators] # + ["time"]
 
     def get_metric_names(self):
         return self.metrics.keys()

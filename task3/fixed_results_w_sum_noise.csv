@@ -1,0 +1,33 @@
+,Linear Regression (YearPredictionMSD),Hubor Regressor (YearPredictionMSD),Perceptron (YearPredictionMSD),Linear Support Vector Machine (YearPredictionMSD),Decision Tree (YearPredictionMSD),"Linear Regression (The SUM dataset, with noise)","Hubor Regressor (The SUM dataset, with noise)","Perceptron (The SUM dataset, with noise)","Linear Support Vector Machine (The SUM dataset, with noise)","Decision Tree (The SUM dataset, with noise)"
+Min Underestimate,9.4217029123,362.1742719315,12.3549180491,174.0386551069,13.8258091987,79666.1357799071,79658.3306224212,736057.397977837,87290.5787438592,121414.2861046
+R^2,6.5873099879,264.555927495,8.7326666667,126.5282898,9.5763333333,59833.1599859,59769.8061335,622900.199667,63229.5131481,85925.125
+Mean Absolute Error,0.0794074447,-1342.84947802,-0.5720779619,-284.55707067,-0.9796517674,0.9870687519,0.9870748086,0.0670920408,0.9860452602,0.9699432646
+Max Overestimate,58.0889261163,2443.69551425,63,1454.10594295,64,245007.372347,244054.522455,1476119,189722.544077,533957
+Median Underestimate,4.6814113591,213.944469134,5,80.5948160306,6,42173.5515311,43258.5657674,416107.5,58945.2290522,56599
+Median Overestimate,-30.2895269596,-2240.63347571,-44,-1322.70322715,-64,-238091.196887,-240367.694773,-1260233,-332219.598838,-518218
+RMSE,-5.0177702122,-189.124775311,-6,-110.086493881,-5,-47021.8850278,-45128.2639825,-715418.5,-31532.3479398,-62106
+Explained Variance,4.7885294782,204.369610177,6,100.176467615,6,44786.9751855,44288.6045893,569541,44757.7928509,59137.5
+Median Absolute Error,0.0787001284,-1360.37380698,-0.5842435114,-313.364600818,-0.9839161706,0.987054273,0.9870568096,-0.1051018441,0.9844577573,0.9699310321
+,,,,,,,,,,
+,Linear Regression (YearPredictionMSD),Hubor Regressor (YearPredictionMSD),Perceptron (YearPredictionMSD),Linear Support Vector Machine (YearPredictionMSD),Decision Tree (YearPredictionMSD),Linear Regression (New York City Taxi Trip Duration),Hubor Regressor (New York City Taxi Trip Duration),Perceptron (New York City Taxi Trip Duration),Linear Support Vector Machine (New York City Taxi Trip Duration),Decision Tree (New York City Taxi Trip Duration)
+Min Underestimate,1,5,2,4,3,1,2,5,3,4
+R^2,1,5,2,4,3,2,1,5,3,4
+Mean Absolute Error,5,1,4,2,3,4,5,1,3,2
+Mean Absolute Err,1,5,2,4,3,2,1,5,3,4
+Max Overestimate,5,1,4,2,3,3,4,1,5,2
+Max Overestimate,1,5,2,4,3,3,2,5,1,4
+Median Underestimate,1,5,2,4,2,4,3,5,1,2
+Median Underestimate,2,5,3,4,1,3,2,5,1,4
+Median Overestimate,4,1,3,2,5,3,4,1,5,2
+RMSE,5,1,3,2,4,5,4,3,2,1
+RMSE,1,5,3,4,2,1,2,3,4,5
+Explained Variance,1,5,2,4,3,2,1,5,3,4
+Median Absolute Error,5,1,3,2,3,3,5,1,4,2
+Median Abs Err,1,5,3,4,3,3,1,5,2,4
+,,,,,,,,,,
+,Linear Regression,Hubor Regressor,Perceptron,Linear Support Vector Machine,Decision Tree,,,,,
+Rank 1,10,5,1,2,0,,,,,
+Rank 2,3,3,6,2,4,,,,,
+Rank 3,3,1,4,4,6,,,,,
+Rank 4,2,1,0,9,6,,,,,
+Rank 5,0,8,7,1,2,,,,,

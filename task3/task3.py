@@ -1,27 +1,33 @@
-from config import regression, classification, datasets, CHUNK_SIZES, CHUNK_SIZE_TOLERANCE, OUTPUT_FILE
+from config import regression, datasets, CHUNK_SIZES, CHUNK_SIZE_TOLERANCE, OUTPUT_FILE
 from result_recorder import ResultRecorder
 from estimate_scorer import cross_val_estimate, split_estimate
+from timeit import default_timer as timer
 
 def score_on_dataset(dataset_name, features, target, estimators, metrics, result_recorder):
     print('Dataset:', dataset_name)
     for estimator in estimators:
         print('\tEstimator:', estimator.name)
+        start_time = timer() 
         chunks = (chunk for chunk in CHUNK_SIZES 
             if chunk <= len(features) * CHUNK_SIZE_TOLERANCE
             if chunk <= estimator.max_dataset_size)
         for chunk in chunks:
             print('\t\tChunk:', chunk)
+            # split estimate necessary for our machines to run this in time, feel free to change to cross_val_estimate
             scores = split_estimate(estimator.algorithm, features[:chunk], target[:chunk], metrics)
             for score_name, score in scores.items():
-               result_recorder.add_result(estimator.name, dataset_name, score_name, chunk, score)
+               result_recorder.add_result(dataset_name, estimator.name, score_name, score)
                print (score_name, score)
+
+        result_recorder.add_result(dataset_name, estimator.name, "time", timer() - start_time)
+        print("TIME TAKEN = " + str(timer() - start_time))
 
 def main():
     # setup result table column names and indexes
     result_recorder = ResultRecorder(
-        CHUNK_SIZES, datasets.keys(), 
-        regression.get_estimator_names(), regression.get_metric_names(),
-        [], []
+        datasets.keys(), 
+        regression.get_estimator_names(),
+        regression.get_metric_names()
     )
 
     # run estimate scorer and fill result table
