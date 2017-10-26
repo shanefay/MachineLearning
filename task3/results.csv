@@ -1,28 +1,28 @@
-,Linear Regression (Housing Prices),Hubor Regressor (Housing Prices),Perceptron (Housing Prices),Linear Support Vector Machine (Housing Prices),Decision Tree (Housing Prices)
-Median Overestimate,90622.4867416,118766.988136,161893.0,121968.424805,106000.0
-RMSE,232059.39393298252,285068.1862433298,397975.59879196866,308034.4483883904,255942.78659539274
-Min Underestimate,-4293545.58192,-5458036.79334,-7000000.0,-5417872.55931,-2040000.0
-Median Underestimate,-100035.288843,-110761.750046,-210107.0,-110887.753524,-111500.5
-Max Overestimate,1539007.84243,621111.306427,712000.0,1230547.151,2567000.0
-R^2,0.637972932545,0.453688628977,-0.0647695547484,0.362116585464,0.559619050865
-Mean Absolute Error,137436.816161,161319.043673,262941.813333,172295.451425,163866.720833
-Median Absolute Error,95511.8208314,114512.278057,196107.0,116085.855724,109750.0
-Explained Variance,0.638010028194,0.462848352559,-0.0295144414463,0.37986360577,0.559669570087
-
-,Linear Regression (Housing Prices),Hubor Regressor (Housing Prices),Perceptron (Housing Prices),Linear Support Vector Machine (Housing Prices),Decision Tree (Housing Prices)
-Median Overestimate,5,3,1,2,4
-RMSE,5,3,1,2,4
-Min Underestimate,2,4,5,3,1
-Median Underestimate,1,2,5,3,4
-Max Overestimate,2,5,4,3,1
-R^2,1,3,5,4,2
-Mean Absolute Error,5,4,1,2,3
-Median Absolute Error,5,3,1,2,4
-Explained Variance,1,3,5,4,2
-
-,Linear Regression,Hubor Regressor,Perceptron,Linear Support Vector Machine,Decision Tree
-Rank 1,3,0,4,0,2
-Rank 2,2,1,0,4,2
-Rank 3,0,5,0,3,1
-Rank 4,0,2,1,2,4
-Rank 5,4,1,4,0,0
+,Linear Regression (YearPredictionMSD),Hubor Regressor (YearPredictionMSD),Perceptron (YearPredictionMSD),Linear Support Vector Machine (YearPredictionMSD),Decision Tree (YearPredictionMSD),Linear Regression (Housing Prices),Hubor Regressor (Housing Prices),Perceptron (Housing Prices),Linear Support Vector Machine (Housing Prices),Decision Tree (Housing Prices)
+Mean Absolute Error,7.4580821229,247.03485339,10.27,170.641367997,10.0557777778,136967.710392,157872.073447,241738.451111,210883.059709,155531.426111
+R^2,0.1967672056,-933.602591136,-0.3398438846,-415.174343373,-0.4838778644,0.6590439356,0.4893486099,-0.2807969499,-0.4887913054,0.4588934371
+RMSE,10.3508144715,353.0752692265,13.3684454344,235.6087743537,14.068664945,201659.266713525,246792.088436419,390849.099999104,421391.611326755,254044.837895396
+Median Absolute Error,5.374154285,183.302884992,8,137.458219748,7,98155.5786096,111805.80335,150742.5,123313.103121,102500
+Explained Variance,0.2115459859,-924.045944217,-0.294793643,-306.375046919,-0.4814077551,0.6590963725,0.5022550558,0.0829450394,-0.3802258367,0.4588940122
+Median Underestimate,-6.4229902373,-167.421491082,-7,-154.94005945,-7,-97889.2147106,-108884.570728,-54200,-100189.97822,-102040
+Min Underestimate,-29.492258389,-2354.8122811,-62,-887.078763931,-68,-2168368.71503,-2590683.98471,-3678100,-6959015.93173,-1700000
+Median Overestimate,4.9249919833,194.080063881,8,82.8009338907,6,98389.6045261,117854.817387,200000,142935.411803,101450
+Max Overestimate,72.3019688741,4327.95998502,69,2519.86752741,76,1091677.07435,553736.395702,675000,2453988.81483,5420000
+Time,0.142991518,0.660144393,0.695818699,4.343783274,1.140120678,0.023687055,0.133796564,5.489608968,0.821734198,0.125855427
+,Linear Regression (YearPredictionMSD),Hubor Regressor (YearPredictionMSD),Perceptron (YearPredictionMSD),Linear Support Vector Machine (YearPredictionMSD),Decision Tree (YearPredictionMSD),Linear Regression (Housing Prices),Hubor Regressor (Housing Prices),Perceptron (Housing Prices),Linear Support Vector Machine (Housing Prices),Decision Tree (Housing Prices)
+Mean Absolute Error,5,1,3,2,4,5,3,1,2,4
+R^2,1,5,2,4,3,1,2,4,5,3
+RMSE,5,1,4,2,3,5,4,2,1,3
+Median Absolute Error,5,1,3,2,4,5,3,1,2,4
+Explained Variance,1,5,2,4,3,1,2,4,5,3
+Median Underestimate,1,5,2,4,2,2,5,1,3,4
+Min Underestimate,1,5,2,4,3,2,3,4,5,1
+Median Overestimate,5,1,3,2,4,5,3,1,2,4
+Max Overestimate,4,1,5,2,3,3,5,4,2,1
+,,,,,,,,,,
+,Linear Regression,Hubor Regressor,Perceptron,Linear Support Vector Machine,Decision Tree,,,,,
+Rank 1,6,5,4,1,2,,,,,
+Rank 2,2,2,5,9,1,,,,,
+Rank 3,1,4,3,1,8,,,,,
+Rank 4,1,1,5,4,7,,,,,
+Rank 5,8,6,1,3,0,,,,,
