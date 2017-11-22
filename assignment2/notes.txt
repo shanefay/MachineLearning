@@ -1,0 +1,3 @@
+4600 not a lot of data -> more would be better
+log time taken as useful for business purposes
+normalize features, plot against target to discover patterns
