@@ -14,7 +14,7 @@ def score_on_dataset(dataset_name, features, target, estimators, metrics, result
         for chunk in chunks:
             print('\t\tChunk:', chunk)
             # split estimate necessary for our machines to run this in time, feel free to change to cross_val_estimate
-            scores = split_estimate(estimator.algorithm, features[:chunk], target[:chunk], metrics)
+            scores = cross_val_estimate(estimator.algorithm, features[:chunk], target[:chunk], metrics)
             for score_name, score in scores.items():
                result_recorder.add_result(dataset_name, estimator.name, score_name, score)
                print (score_name, score)

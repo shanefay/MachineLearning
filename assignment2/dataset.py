@@ -27,7 +27,6 @@ class Dataset:
         if map_columns:
             for index, func in map_columns.items():
                 dataframe.iloc[:,index] = dataframe.iloc[:,index].apply(func)
-
         self.features = dataframe.iloc[:,features]
 
         self.regression_target = dataframe.iloc[:,regression_target]
@@ -48,20 +47,11 @@ class Dataset:
 
 MAX_NROWS = 10000000
 
-def year_predict(data_dir, filename):
-    print('Loading:', filename)    
-    filepath = os.path.join(data_dir, filename)
-    df = pd.read_csv(filepath, nrows=MAX_NROWS)
-    features = range(1, 91)
-    regression_target = 0
-    classification_target_gen = lambda x: str(x)[0:3] + '0s' # convert year to decade
-    return Dataset(df, features, regression_target, classification_target_gen)
-
-def housing_prices(data_dir, filename):
+def white_wine(data_dir, filename):
     print('Loading:', filename)
     filepath = os.path.join(data_dir, filename)
-    df = pd.read_csv(filepath, nrows=MAX_NROWS)
-    features = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 19, 20]
-    regression_target = 2
+    df = pd.read_csv(filepath, nrows=MAX_NROWS,delimiter=";")
+    features = range(0,10)
+    regression_target = 11
     classification_target = 0
     return Dataset(df, features, regression_target, classification_target)  

@@ -1,6 +1,6 @@
 from estimators import Estimator, EstimatorsWithMetrics
 import dataset as ds
-from sklearn import linear_model, svm, tree
+from sklearn import linear_model, kernel_ridge, svm, tree
 from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, precision_score, explained_variance_score, mean_absolute_error, mean_squared_log_error, median_absolute_error
 from utils import compose, partial
 from math import sqrt
@@ -21,22 +21,15 @@ DATA_DIRECTORY = os.path.join(PROJECT_ROOT, 'ML_data')
 # Relative path from data directory to the files containing the datasets.
 # The defaults given here match the structure of the dropbox folder:
 # https://www.dropbox.com/sh/euppz607r6gsen2/AACcVFIxekZXYTEM5ZsMSczEa?dl=0
-MILLION_SONG = os.path.join('MillionSong Year-Prediction Dataset (Excerpt)', 'YearPredictionMSD.txt.zip')
-HOUSING = os.path.join('House Sales in King County, USA', 'kc_house_data.csv')
+WHITE_WINE = os.path.join('', 'winequality-white.csv')
 
 datasets = {
-    'YearPredictionMSD': ds.year_predict(DATA_DIRECTORY, MILLION_SONG),
-
-   # 'New York City Taxi Trip Duration': ds.new_york_taxi(DATA_DIRECTORY, NEW_YORK_TAXI),
-   # 'Fashion MNIST': ds.fashion(DATA_DIRECTORY, FASHION),
-     'Housing Prices': ds.housing_prices(DATA_DIRECTORY, HOUSING)
-
-
+    'White Wine': ds.white_wine(DATA_DIRECTORY, WHITE_WINE)
 }
 
 # The number of datapoints (for each dataset) to use with each estimator
-CHUNK_SIZES = [15000]
-SMALL_DATASET_SIZE = 15000
+CHUNK_SIZES = [3000]
+SMALL_DATASET_SIZE = 3000
 MAX_DATASET_SIZE = CHUNK_SIZES[-1]
 
 # Chunk size tolerance
@@ -61,12 +54,9 @@ def median_underestimate(predY, trueY):
 # The chosen regression/classification algorithms with chosen metrics
 regression = EstimatorsWithMetrics(
     estimators = [
-        Estimator('Linear Regression', linear_model.LinearRegression(), MAX_DATASET_SIZE),
-        Estimator('Hubor Regressor', linear_model.HuberRegressor(), SMALL_DATASET_SIZE),
-        Estimator('Perceptron', linear_model.Perceptron(), SMALL_DATASET_SIZE),
-        Estimator('Linear Support Vector Machine', svm.LinearSVR(), SMALL_DATASET_SIZE),
-        Estimator('Decision Tree', tree.DecisionTreeRegressor(), SMALL_DATASET_SIZE),
-    ],
+        Estimator('Linear Regression', linear_model.LinearRegression(), SMALL_DATASET_SIZE),
+        Estimator('Kernel Regressor', kernel_ridge.KernelRidge(), SMALL_DATASET_SIZE)
+        ],
     metrics = {
         'RMSE': compose(sqrt, mean_squared_error),
         'R^2': r2_score,
