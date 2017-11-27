@@ -26,7 +26,7 @@ class Dataset:
         """
         if map_columns:
             for index, func in map_columns.items():
-                dataframe.iloc[:,index] = dataframe.iloc[:,index].apply(func)
+                dataframe.iloc[:,index] = dataframe.iloc[:,index].apply(func)           
         self.features = dataframe.iloc[:,features]
 
         self.regression_target = dataframe.iloc[:,regression_target]
@@ -51,6 +51,8 @@ def white_wine(data_dir, filename):
     print('Loading:', filename)
     filepath = os.path.join(data_dir, filename)
     df = pd.read_csv(filepath, nrows=MAX_NROWS,delimiter=";")
+    normalized = preprocessing.normalize(df)
+    df = pd.DataFrame(normalized)
     features = range(0,10)
     regression_target = 11
     classification_target = 0
