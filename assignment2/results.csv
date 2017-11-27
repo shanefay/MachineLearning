@@ -1,0 +1,25 @@
+;Linear Regression (White Wine);Kernel Regressor (White Wine)
+Mean Absolute Error;0.00537509554839;0.00837294279867
+Max Overestimate;0.0366629570922;0.0258844529183
+Median Absolute Error;0.00433070485419;0.00687464210532
+Min Underestimate;-0.0289524520765;-0.0487543080365
+Explained Variance;0.825080688326;0.649307059909
+RMSE;0.00756768700529;0.0110862051633
+Median Underestimate;-0.00417140290825;-0.00656497432261
+R^2;0.822460076718;0.631888400929
+Median Overestimate;0.00459422341814;0.00746590624983
+
+;Linear Regression (White Wine);Kernel Regressor (White Wine)
+Mean Absolute Error;2;1
+Max Overestimate;1;2
+Median Absolute Error;2;1
+Min Underestimate;1;2
+Explained Variance;1;2
+RMSE;2;1
+Median Underestimate;1;2
+R^2;1;2
+Median Overestimate;2;1
+
+;Linear Regression;Kernel Regressor
+Rank 1;5;4
+Rank 2;4;5
