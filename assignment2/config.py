@@ -27,45 +27,20 @@ datasets = {
     'White Wine': ds.white_wine(DATA_DIRECTORY, WHITE_WINE)
 }
 
-# The number of datapoints (for each dataset) to use with each estimator
-CHUNK_SIZES = [3000]
-SMALL_DATASET_SIZE = 3000
-MAX_DATASET_SIZE = CHUNK_SIZES[-1]
-
-# Chunk size tolerance
-# e.g. With a tolerance of 0.9 a dataset with 9.x million entries will count as a 10 million chunk size
-CHUNK_SIZE_TOLERANCE = 0.9
-
-def median_overestimate(predY, trueY):
-    diffs = predY - trueY
-    try:
-        return median(filter(lambda x: x >= 0, diffs))
-    # In cases where no overestimates exist.
-    except:
-        return 0
-def median_underestimate(predY, trueY):
-    diffs = predY - trueY
-    try:
-        return median(filter(lambda x: x <= 0, diffs))
-    # In cases where no underestimate exist.
-    except:
-        return 0
+# The number of datapoints to use with each estimator
+CHUNK_SIZE = 4140
 
 # The chosen regression/classification algorithms with chosen metrics
 regression = EstimatorsWithMetrics(
     estimators = [
-        Estimator('Linear Regression', linear_model.LinearRegression(), SMALL_DATASET_SIZE),
-        Estimator('Kernel Regressor', kernel_ridge.KernelRidge(), SMALL_DATASET_SIZE)
+        Estimator('Linear Regression', linear_model.LinearRegression()),
+        Estimator('Kernel Regressor', kernel_ridge.KernelRidge())
         ],
     metrics = {
         'RMSE': compose(sqrt, mean_squared_error),
         'R^2': r2_score,
         'Explained Variance':explained_variance_score,
         'Mean Absolute Error':mean_absolute_error, 
-        'Median Absolute Error':median_absolute_error,
-        'Median Overestimate':median_overestimate,
-        'Median Underestimate':median_underestimate,
-        'Max Overestimate': lambda trueY, predY : max(predY - trueY),
-        'Min Underestimate': lambda trueY, predY : min(predY - trueY)
+        'Median Absolute Error':median_absolute_error
     }
 )

@@ -5,14 +5,11 @@ class Estimator:
     Attributes:
         name: Name of the estimator
         algorithm: Estimator algorithm
-        max_dataset_size: Maximum number of datapoints that should be 
-                          used with this estimator 
     """
 
-    def __init__(self, name, algorithm, max_dataset_size):
+    def __init__(self, name, algorithm):
         self.name = name
         self.algorithm = algorithm
-        self.max_dataset_size = max_dataset_size
 
 class EstimatorsWithMetrics:
         
