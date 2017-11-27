@@ -53,7 +53,6 @@ def white_wine(data_dir, filename):
     df = pd.read_csv(filepath, nrows=MAX_NROWS,delimiter=";")
     normalized = preprocessing.normalize(df)
     df = pd.DataFrame(normalized)
-    print(df)
     features = range(0,10)
     regression_target = 11
     classification_target = 0

@@ -55,7 +55,7 @@ def median_underestimate(predY, trueY):
 regression = EstimatorsWithMetrics(
     estimators = [
         Estimator('Linear Regression', linear_model.LinearRegression(), SMALL_DATASET_SIZE),
-        Estimator('Kernel Regressor', kernel_ridge.KernelRidge(), SMALL_DATASET_SIZE)
+        Estimator('Kernel Regressor', kernel_ridge.KernelRidge(), SMALL_DATASET_SIZE),
         ],
     metrics = {
         'RMSE': compose(sqrt, mean_squared_error),
