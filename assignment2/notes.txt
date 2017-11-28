@@ -1,7 +1,9 @@
 4600 not a lot of data -> more would be better
 log time taken as useful for business purposes
 normalize features, plot against target to discover patterns
+
 baseline algorithm = 6
 
-we normalized data by column as they are different orders of magnitude
-
+plot correlations - remove features?
+plot data - remove outliers?
+normalize correctly

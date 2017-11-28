@@ -1,6 +1,8 @@
-import pandas as pd
-from sklearn import preprocessing
+import numpy as np
 import os
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn import preprocessing
 
 class Dataset:
     """This class represents a dataset
@@ -50,10 +52,56 @@ MAX_NROWS = 10000000
 def white_wine(data_dir, filename):
     print('Loading:', filename)
     filepath = os.path.join(data_dir, filename)
-    df = pd.read_csv(filepath, nrows=MAX_NROWS,delimiter=";")
-    normalized = preprocessing.normalize(df)
-    df = pd.DataFrame(normalized)
+    df = pd.read_csv(filepath, nrows=MAX_NROWS,delimiter=";",header=0)
+    # Assuming same lines from your example
+    df.columns = ["fixed acidity","volatile acidity","citric acid",
+                "residual sugar","chlorides","free sulfur dioxide",
+                "total sulfur dioxide","density","pH","sulphates",
+                "alcohol","quality"]
+    output_text_data(df, 'original_data')
+    do_plots(df, 'original_data')
+    cols_to_norm = ["fixed acidity","volatile acidity","citric acid",
+                "residual sugar","chlorides","free sulfur dioxide",
+                "total sulfur dioxide","density","pH","sulphates",
+                "alcohol"]
+    df[cols_to_norm] = df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
+    #do_plots(df, 'normalized')
+    print('Feature plots saved')
     features = range(0,10)
     regression_target = 11
     classification_target = 0
-    return Dataset(df, features, regression_target, classification_target)  
+    return Dataset(df, features, regression_target, classification_target)
+
+def do_plots(dataframe, name):
+    do_histogram(dataframe, name)
+    do_scatterplots(dataframe)
+    do_correlations(dataframe, name)
+
+def output_text_data(dataframe, name):
+    text_file = open(name + "_details.txt", "w")
+    text_file.write(str(dataframe.describe()))
+    text_file.close()
+
+def do_scatterplots(df):
+    for col in df.columns:
+        df.plot(kind='scatter', x=col, y='quality').get_figure().savefig(col + '_vs_quality_scatterplot')
+
+def do_histogram(df, name):
+    return None
+    # for col in df.columns:
+    #     df.hist(column=col, bins=10).plot().get_figure().savefig(col + '_histogram')
+    
+def do_correlations(df, name):
+    correlations = df.corr()
+    # plot correlation matrix
+    fig2 = plt.figure(figsize=(14, 14))
+    ax2 = fig2.add_subplot(111)
+    cax = ax2.matshow(correlations, vmin=-1, vmax=1)
+    fig2.colorbar(cax)
+    ticks = np.arange(0,12,1)
+    ax2.set_xticks(ticks)
+    ax2.set_yticks(ticks)
+    ax2.set_xticklabels(df.columns, rotation=90)
+    ax2.set_yticklabels(df.columns)
+    plt.savefig(name + "_feature_correlations.png")
+    plt.close()

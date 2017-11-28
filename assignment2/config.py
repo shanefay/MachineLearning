@@ -1,6 +1,6 @@
 from estimators import Estimator, EstimatorsWithMetrics
 import dataset as ds
-from sklearn import linear_model, kernel_ridge, svm, tree
+from sklearn import linear_model, kernel_ridge, dummy
 from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, precision_score, explained_variance_score, mean_absolute_error, mean_squared_log_error, median_absolute_error
 from utils import compose, partial
 from math import sqrt
@@ -33,6 +33,7 @@ CHUNK_SIZE = 4140
 # The chosen regression/classification algorithms with chosen metrics
 regression = EstimatorsWithMetrics(
     estimators = [
+        Estimator('Baseline', dummy.DummyRegressor(strategy='mean')),
         Estimator('Linear Regression', linear_model.LinearRegression()),
         Estimator('Kernel Regressor', kernel_ridge.KernelRidge())
         ],
