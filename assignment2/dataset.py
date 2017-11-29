@@ -2,7 +2,8 @@ import numpy as np
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn import preprocessing
+from sklearn import linear_model,preprocessing
+from sklearn.feature_selection import RFE
 
 class Dataset:
     """This class represents a dataset
@@ -60,11 +61,17 @@ def white_wine(data_dir, filename):
                 "alcohol","quality"]
     output_text_data(df, 'original_data')
     do_plots(df, 'original_data')
+
     cols_to_norm = ["fixed acidity","volatile acidity","citric acid",
                 "residual sugar","chlorides","free sulfur dioxide",
                 "total sulfur dioxide","density","pH","sulphates",
                 "alcohol"]
-    df[cols_to_norm] = df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
+    # Simple min max normalization
+    # df[cols_to_norm] = df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
+    # RobustScaler - deals better with outliers etc
+    scaler = preprocessing.RobustScaler() 
+    df[cols_to_norm] = scaler.fit_transform(df[cols_to_norm])
+
     #do_plots(df, 'normalized')
     print('Feature plots saved')
     features = range(0,10)
@@ -105,3 +112,15 @@ def do_correlations(df, name):
     ax2.set_yticklabels(df.columns)
     plt.savefig(name + "_feature_correlations.png")
     plt.close()
+
+def do_RFE_feature_ranking(df):
+    array = df.values
+    X = array[:,0:11]
+    Y = array[:,11]
+    rfe = RFE(linear_model.LinearRegression(), 1)
+    rfe = rfe.fit(X,Y)
+    # summarize the selection of the attributes
+    text_file = open(name + "_feature_ranks.txt", "w")
+    text_file.write(str(rfe.estimator_))
+    text_file.write(str(rfe.ranking_))
+    text_file.close()
