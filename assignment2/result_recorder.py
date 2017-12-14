@@ -6,8 +6,7 @@ from functools import reduce
 class ResultRecorder:
     """This class represents the results table.
 
-    This is as specified by the example in the instructions for task 3.
-    The `to_csv` method produces a CSV file in the specified format.
+    The `to_csv` method produces a CSV file containing the results.
 
     """
 
@@ -18,19 +17,8 @@ class ResultRecorder:
         self.tables[dataset][estimator][metric] = result
 
     def to_csv(self, filename):
-        # get the ranks (1 highest) of the results in each row
-        rank_tables = {dataset: table.rank(axis=1, method='min', ascending=False).astype(np.int64) for dataset, table in self.tables.items()}
-        
-        combined_rank_table = reduce(lambda x,y: x.append(y), rank_tables.values()) # append tables to count ranks over all datasets
-        frequency_table = combined_rank_table.apply(pd.value_counts).fillna(0).astype(np.int64) # count the number of times each rank occurs per column
-        frequency_table = frequency_table.transpose().add_prefix('Rank ').transpose().sort_index() # prefix the indexes with 'Rank '
-
-        output = '\n'.join([
-            self._tables_to_csv_string(self.tables),
-            self._tables_to_csv_string(rank_tables),
-            self._dataframe_to_csv_string(frequency_table)
-        ])
-        with open(filename, 'w') as outfile: outfile.write(output)
+        with open(filename, 'w') as outfile: 
+            outfile.write(self._tables_to_csv_string(self.tables))
 
     def _tables_to_csv_string(self, tables):
         suffixed_tables = [table.add_suffix(' ({})'.format(dataset)) for dataset, table in tables.items()] # add name of dataset to column labels

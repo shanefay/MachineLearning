@@ -1,6 +1,6 @@
 from estimators import Estimator, EstimatorsWithMetrics
 import dataset as ds
-from sklearn import linear_model, kernel_ridge, dummy
+from sklearn import linear_model, kernel_ridge, dummy, svm
 from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, precision_score, explained_variance_score, mean_absolute_error, mean_squared_log_error, median_absolute_error
 from utils import compose, partial
 from math import sqrt
@@ -35,7 +35,7 @@ regression = EstimatorsWithMetrics(
     estimators = [
         Estimator('Baseline', dummy.DummyRegressor(strategy='mean')),
         Estimator('Linear Regression', linear_model.LinearRegression()),
-        Estimator('Kernel Regressor', kernel_ridge.KernelRidge())
+        Estimator('Kernel Regressor', svm.SVR(kernel='rbf')),
         ],
     metrics = {
         'RMSE': compose(sqrt, mean_squared_error),

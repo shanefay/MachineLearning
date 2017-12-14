@@ -26,10 +26,10 @@ def split_estimate(estimator, X, y, metrics, test_size=0.3):
     # print(y_test.min)
     return {name: metric(y_test, y_pred) for name, metric in metrics.items()}
 
-def cross_val_estimate(estimator, X, y, metrics, k_fold=10):
+def cross_val_estimate(estimator, X, y, metrics, k_fold=20):
     """Score an estimated model using k-fold cross validation.
 
-    10-fold cross validation is used by default.
+    20-fold cross validation is used by default.
     
     Args:
         estimator: Scikit-learn model estimator.
@@ -44,8 +44,15 @@ def cross_val_estimate(estimator, X, y, metrics, k_fold=10):
         A dictionary of metric names to scores.
         The scores are the metrics on the k-fold test targets verses predicted 
         targets. As there are k-fold test sets, the mean of each metric is 
-        taken as the scores.
+        taken as the scores with a confidence interval (20-fold gives 90% CI).
     """
     scoring = {name: make_scorer(metric) for name, metric in metrics.items()}
     scores = cross_validate(estimator, X, y, cv=k_fold, scoring=scoring)
-    return {name: scores['test_' + name].mean() for name in scoring}
+    return {name: confidence_interval_score(scores['test_' + name]) for name in scoring}
+
+def confidence_interval_score(score_list):
+    mean = score_list.mean()
+    score_list.sort()
+    low = score_list[1]
+    high = score_list[-2]
+    return '{:.3f} [{:+.3f}, {:+.3f}]'.format(mean, low-mean, high-mean)
